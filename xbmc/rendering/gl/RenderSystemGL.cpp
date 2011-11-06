@@ -621,4 +621,25 @@ void CRenderSystemGL::ResetGLErrors()
   }
 }
 
+void CRenderSystemGL::SetStereoMode(RENDER_STEREO_MODE mode, RENDER_STEREO_VIEW view)
+{
+  CRenderSystemBase::SetStereoMode(mode, view);
+
+  glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+  if(m_stereoMode == RENDER_STEREO_MODE_ANAGLYPH_RED_CYAN)
+  {
+    if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+      glColorMask(GL_TRUE, GL_FALSE, GL_FALSE, GL_TRUE);
+    else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+      glColorMask(GL_FALSE, GL_TRUE, GL_TRUE, GL_TRUE);
+  }
+  if(m_stereoMode == RENDER_STEREO_MODE_ANAGLYPH_GREEN_MAGENTA)
+  {
+    if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+      glColorMask(GL_FALSE, GL_TRUE, GL_FALSE, GL_TRUE);
+    else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+      glColorMask(GL_TRUE, GL_FALSE, GL_TRUE, GL_TRUE);
+  }
+}
+
 #endif

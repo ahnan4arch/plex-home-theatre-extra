@@ -2500,6 +2500,22 @@ void CApplication::Render()
   if (RenderNoPresent())
     hasRendered = true;
 
+  if(g_graphicsContext.GetStereoMode())
+  {
+    g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_LEFT);
+    if(RenderNoPresent())
+      hasRendered = true;
+    g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_RIGHT);
+    if(RenderNoPresent())
+      hasRendered = true;
+    g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_OFF);
+  }
+  else
+  {
+    if(RenderNoPresent())
+      hasRendered = true;
+  }
+
   g_Windowing.EndRender();
 
   // reset our info cache - we do this at the end of Render so that it is

@@ -101,7 +101,7 @@ static const ControlMapping controls[] =
     {"karvisualisation",  CGUIControl::GUICONTROL_VISUALISATION},
     {"renderaddon",       CGUIControl::GUICONTROL_RENDERADDON},
     {"multiimage",        CGUIControl::GUICONTROL_MULTI_IMAGE},
-    {"grouplist",         CGUIControl::GUICONTROL_GROUPLIST},
+    {"grouplist",         CGUIControl::GUICONTROL_GROUPLIST}, 
     {"scrollbar",         CGUIControl::GUICONTROL_SCROLLBAR},
     {"multiselect",       CGUIControl::GUICONTROL_MULTISELECT},
     {"list",              CGUIControl::GUICONTAINER_LIST},

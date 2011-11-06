@@ -11420,3 +11420,27 @@ msgstr ""
 msgctxt "#36041"
 msgid "* Item folder"
 msgstr ""
+
+msgctxt "#36501"
+msgid "Stereoscopic 3d Mode"
+msgstr ""
+
+msgctxt "#36502"
+msgid "None"
+msgstr ""
+
+msgctxt "#36503"
+msgid "Over/Under"
+msgstr ""
+
+msgctxt "#36504"
+msgid "Side by side"
+msgstr ""
+
+msgctxt "#36505"
+msgid "Anaglyph Red/Cyan"
+msgstr ""
+
+msgctxt "#36506"
+msgid "Anaglyph Green/Magenta"
+msgstr ""

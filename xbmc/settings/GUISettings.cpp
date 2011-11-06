@@ -452,6 +452,13 @@ void CGUISettings::Initialize()
 #if defined(HAS_LCD)
   AddBool(vs, "videoscreen.haslcd", 4501, false);
 #endif
+  map<int,int> stereo;
+  stereo.insert(make_pair(36502,RENDER_STEREO_MODE_OFF));
+  stereo.insert(make_pair(36503,RENDER_STEREO_MODE_SPLIT_HORIZONTAL));
+  stereo.insert(make_pair(36504,RENDER_STEREO_MODE_SPLIT_VERTICAL));
+  stereo.insert(make_pair(36505,RENDER_STEREO_MODE_ANAGLYPH_RED_CYAN));
+  stereo.insert(make_pair(36506,RENDER_STEREO_MODE_ANAGLYPH_GREEN_MAGENTA));
+  AddInt(vs, "videoscreen.mode3d", 36501, RENDER_STEREO_MODE_OFF, stereo, SPIN_CONTROL_TEXT);
 
   CSettingsCategory* ao = AddCategory(SETTINGS_SYSTEM, "audiooutput", 772);
 
