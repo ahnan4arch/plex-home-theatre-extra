@@ -305,8 +305,13 @@ float CBaseRenderer::GetAspectRatio() const
 {
   float width = (float)m_sourceWidth - g_settings.m_currentVideoSettings.m_CropLeft - g_settings.m_currentVideoSettings.m_CropRight;
   float height = (float)m_sourceHeight - g_settings.m_currentVideoSettings.m_CropTop - g_settings.m_currentVideoSettings.m_CropBottom;
-  if(g_graphicsContext.GetStereoView())
-    width *= 0.5;
+  if (!g_graphicsContext.IsFullScreenVideo())
+  {
+    if (g_graphicsContext.GetStereoMode() == RENDER_STEREO_MODE_SPLIT_VERTICAL)
+      width *= 0.5f;
+    else if (g_graphicsContext.GetStereoMode() == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
+      height *= 0.5f;
+  }
   return m_sourceFrameRatio * width / height * m_sourceHeight / m_sourceWidth;
 }
 
@@ -572,13 +577,24 @@ void CBaseRenderer::ManageDisplay()
   m_sourceRect.x2 = (float)m_sourceWidth;
   m_sourceRect.y2 = (float)m_sourceHeight;
 
-  if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_LEFT)
+  if (!g_graphicsContext.IsFullScreenVideo())
   {
-    m_sourceRect.x2 *= 0.5f;
-  }
-  else if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_RIGHT)
-  {
-    m_sourceRect.x1 += m_sourceRect.x2*0.5f;
+    // we will change this only if we aren't in fullscreen window
+    RENDER_STEREO_MODE stereo_mode = g_graphicsContext.GetStereoMode();
+    if (stereo_mode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
+    {
+      if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_LEFT)
+        m_sourceRect.x2 *= 0.5f;
+      else if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_RIGHT)
+        m_sourceRect.x1 += m_sourceRect.x2*0.5f;
+    }
+    else if (stereo_mode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
+    {
+      if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_LEFT)
+        m_sourceRect.y2 *= 0.5f;
+      else if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_RIGHT)
+        m_sourceRect.y1 += m_sourceRect.y2*0.5f;
+    }
   }
 
   m_sourceRect.x1 += g_settings.m_currentVideoSettings.m_CropLeft;
