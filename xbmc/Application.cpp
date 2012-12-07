@@ -2497,9 +2497,6 @@ void CApplication::Render()
     return;
 
   CDirtyRegionList dirtyRegions = g_windowManager.GetDirty();
-  if (RenderNoPresent())
-    hasRendered = true;
-
   if(g_graphicsContext.GetStereoMode())
   {
     g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_LEFT);
