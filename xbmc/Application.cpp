@@ -2346,13 +2346,25 @@ bool CApplication::RenderNoPresent()
   // dont show GUI when playing full screen video
   if (g_graphicsContext.IsFullScreenVideo())
   {
-    if (m_bPresentFrame && IsPlaying() && !IsPaused())
+    RENDER_STEREO_VIEW stereoView = g_graphicsContext.GetStereoView();
+    // we don't want to render video only once (without any stereo effect - video already have it)
+    if (stereoView != RENDER_STEREO_VIEW_RIGHT)
     {
-      ResetScreenSaver();
-      g_renderManager.Present();
+      bool isStereo = (stereoView != RENDER_STEREO_VIEW_OFF);
+
+      g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_OFF);
+
+      if (m_bPresentFrame && IsPlaying() && !IsPaused())
+      {
+        ResetScreenSaver();
+        g_renderManager.Present();
+      }
+      else
+        g_renderManager.RenderUpdate(true);
+
+      if (isStereo)
+        g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_LEFT);
     }
-    else
-      g_renderManager.RenderUpdate(true);
 
     // close window overlays
     CGUIDialog *overlay = (CGUIDialog *)g_windowManager.GetWindow(WINDOW_DIALOG_VIDEO_OVERLAY);
