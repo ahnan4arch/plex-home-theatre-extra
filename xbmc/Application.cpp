@@ -3108,6 +3108,15 @@ bool CApplication::OnAction(const CAction &action)
       g_windowManager.ActivateWindow(WINDOW_MUSIC_PLAYLIST);
     return true;
   }
+  else if (action.GetID() == ACTION_MODE3D)
+  {
+    int mode = g_guiSettings.GetInt("videoscreen.mode3d") + 1;
+    if (mode > RENDER_STEREO_MODE_ANAGLYPH_GREEN_MAGENTA)
+      mode = RENDER_STEREO_MODE_OFF;
+
+    g_guiSettings.SetInt("videoscreen.mode3d", mode);
+    CGUIDialogKaiToast::QueueNotification(CGUIDialogKaiToast::Info, g_localizeStrings.Get(36501), g_localizeStrings.Get(36502 + mode));
+  }
   return false;
 }
 
