@@ -63,8 +63,8 @@ enum
 enum RENDER_STEREO_VIEW
 {
   RENDER_STEREO_VIEW_OFF,
-  RENDER_STEREO_VIEW_LEFT,
-  RENDER_STEREO_VIEW_RIGHT,
+  RENDER_STEREO_VIEW_FIRST_PASS,  // left in side_by_side, top in top_by_bottom, first color in anaglyph
+  RENDER_STEREO_VIEW_SECOND_PASS, // right in side_by_side, bottom in top_by_bottom, second color in anaglyph
 };
 
 enum RENDER_STEREO_MODE

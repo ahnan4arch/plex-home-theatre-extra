@@ -628,16 +628,16 @@ void CRenderSystemGL::SetStereoMode(RENDER_STEREO_MODE mode, RENDER_STEREO_VIEW 
   glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
   if(m_stereoMode == RENDER_STEREO_MODE_ANAGLYPH_RED_CYAN)
   {
-    if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+    if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
       glColorMask(GL_TRUE, GL_FALSE, GL_FALSE, GL_TRUE);
-    else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+    else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
       glColorMask(GL_FALSE, GL_TRUE, GL_TRUE, GL_TRUE);
   }
   if(m_stereoMode == RENDER_STEREO_MODE_ANAGLYPH_GREEN_MAGENTA)
   {
-    if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+    if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
       glColorMask(GL_FALSE, GL_TRUE, GL_FALSE, GL_TRUE);
-    else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+    else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
       glColorMask(GL_TRUE, GL_FALSE, GL_TRUE, GL_TRUE);
   }
 }

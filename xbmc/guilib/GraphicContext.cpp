@@ -263,16 +263,16 @@ const CRect CGraphicContext::GetViewWindow() const
 
     if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
     {
-      if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+      if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
         rect.y2 *= 0.5f;
-      if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+      if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
         rect.y1 += rect.y2 * 0.5f;
     }
     if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
     {
-      if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+      if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
         rect.x2 *= 0.5f;
-      if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+      if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
         rect.x1 += rect.x2 * 0.5f;
     }
     return rect;
@@ -718,7 +718,7 @@ void CGraphicContext::UpdateFinalTransform(const TransformMatrix &matrix)
 
   m_finalTransform.Reset();
 
-  if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+  if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
   {
     if     (m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
     {
@@ -729,7 +729,7 @@ void CGraphicContext::UpdateFinalTransform(const TransformMatrix &matrix)
       m_finalTransform *= TransformMatrix::CreateScaler(1.0, 0.5, 1.0);
     }
   }
-  else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+  else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
   {
     m_finalTransform.Reset();
     if     (m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
@@ -767,12 +767,12 @@ void CGraphicContext::SetStereoView(RENDER_STEREO_VIEW view)
   {
     viewport.y1 = 0.0f;
     viewport.y2 = (float)m_iScreenHeight;
-    if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+    if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
     {
       viewport.x1 = 0.0f;
       viewport.x2 = (float)m_iScreenWidth*0.5f;
     }
-    else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+    else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
     {
       viewport.x1 = (float)m_iScreenWidth*0.5f;
       viewport.x2 = (float)m_iScreenWidth;
@@ -787,12 +787,12 @@ void CGraphicContext::SetStereoView(RENDER_STEREO_VIEW view)
   {
     viewport.x1 = 0.0f;
     viewport.x2 = (float)m_iScreenWidth;
-    if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+    if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
     {
       viewport.y1 = 0.0f;
       viewport.y2 = (float)m_iScreenHeight*0.5f;
     }
-    else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+    else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
     {
       viewport.y1 = (float)m_iScreenHeight*0.5f;
       viewport.y2 = (float)m_iScreenHeight;
@@ -891,9 +891,9 @@ CRect CGraphicContext::generateAABB(const CRect &rect) const
 void CGraphicContext::UpdateCameraPosition(const CPoint &camera)
 {
   CPoint camera2(camera);
-  if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+  if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
     camera2.x -= 0.25f * m_iScreenWidth;
-  else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+  else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
     camera2.x += 0.25f * m_iScreenWidth;
 
   g_Windowing.SetCameraPosition(camera2, m_iScreenWidth, m_iScreenHeight);

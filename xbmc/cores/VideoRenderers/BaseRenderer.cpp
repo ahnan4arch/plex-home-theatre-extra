@@ -583,16 +583,16 @@ void CBaseRenderer::ManageDisplay()
     RENDER_STEREO_MODE stereo_mode = g_graphicsContext.GetStereoMode();
     if (stereo_mode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
     {
-      if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_LEFT)
+      if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_FIRST_PASS)
         m_sourceRect.x2 *= 0.5f;
-      else if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_RIGHT)
+      else if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_SECOND_PASS)
         m_sourceRect.x1 += m_sourceRect.x2*0.5f;
     }
     else if (stereo_mode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
     {
-      if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_LEFT)
+      if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_FIRST_PASS)
         m_sourceRect.y2 *= 0.5f;
-      else if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_RIGHT)
+      else if(g_graphicsContext.GetStereoView() == RENDER_STEREO_VIEW_SECOND_PASS)
         m_sourceRect.y1 += m_sourceRect.y2*0.5f;
     }
   }

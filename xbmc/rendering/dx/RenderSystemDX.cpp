@@ -736,7 +736,7 @@ bool CRenderSystemDX::ClearBuffers(color_t color)
   || m_stereoMode == RENDER_STEREO_MODE_ANAGLYPH_GREEN_MAGENTA)
   {
     // if stereo anaglyph, data was cleared when left view was rendererd
-    if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+    if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
       return true;
   }
 
@@ -1012,16 +1012,16 @@ void CRenderSystemDX::SetStereoMode(RENDER_STEREO_MODE mode, RENDER_STEREO_VIEW 
   m_pD3DDevice->SetRenderState( D3DRS_COLORWRITEENABLE, D3DCOLORWRITEENABLE_ALPHA | D3DCOLORWRITEENABLE_RED | D3DCOLORWRITEENABLE_BLUE | D3DCOLORWRITEENABLE_GREEN);
   if(m_stereoMode == RENDER_STEREO_MODE_ANAGLYPH_RED_CYAN)
   {
-    if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+    if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
       m_pD3DDevice->SetRenderState( D3DRS_COLORWRITEENABLE, D3DCOLORWRITEENABLE_RED );
-    else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+    else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
       m_pD3DDevice->SetRenderState( D3DRS_COLORWRITEENABLE, D3DCOLORWRITEENABLE_BLUE | D3DCOLORWRITEENABLE_GREEN );
   }
   if(m_stereoMode == RENDER_STEREO_MODE_ANAGLYPH_GREEN_MAGENTA)
   {
-    if(m_stereoView == RENDER_STEREO_VIEW_LEFT)
+    if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
       m_pD3DDevice->SetRenderState( D3DRS_COLORWRITEENABLE, D3DCOLORWRITEENABLE_GREEN );
-    else if(m_stereoView == RENDER_STEREO_VIEW_RIGHT)
+    else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
       m_pD3DDevice->SetRenderState( D3DRS_COLORWRITEENABLE, D3DCOLORWRITEENABLE_BLUE | D3DCOLORWRITEENABLE_RED );
   }
 }

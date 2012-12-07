@@ -2348,7 +2348,7 @@ bool CApplication::RenderNoPresent()
   {
     RENDER_STEREO_VIEW stereoView = g_graphicsContext.GetStereoView();
     // we don't want to render video only once (without any stereo effect - video already have it)
-    if (stereoView != RENDER_STEREO_VIEW_RIGHT)
+    if (stereoView != RENDER_STEREO_VIEW_SECOND_PASS)
     {
       bool isStereo = (stereoView != RENDER_STEREO_VIEW_OFF);
 
@@ -2363,7 +2363,7 @@ bool CApplication::RenderNoPresent()
         g_renderManager.RenderUpdate(true);
 
       if (isStereo)
-        g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_LEFT);
+        g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_FIRST_PASS);
     }
 
     // close window overlays
@@ -2511,10 +2511,10 @@ void CApplication::Render()
   CDirtyRegionList dirtyRegions = g_windowManager.GetDirty();
   if(g_graphicsContext.GetStereoMode())
   {
-    g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_LEFT);
+    g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_FIRST_PASS);
     if(RenderNoPresent())
       hasRendered = true;
-    g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_RIGHT);
+    g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_SECOND_PASS);
     if(RenderNoPresent())
       hasRendered = true;
     g_graphicsContext.SetStereoView(RENDER_STEREO_VIEW_OFF);
