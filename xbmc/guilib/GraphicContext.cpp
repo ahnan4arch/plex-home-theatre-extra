@@ -741,55 +741,25 @@ void CGraphicContext::SetStereoView(RENDER_STEREO_VIEW view)
   while(m_viewStack.size())
     m_viewStack.pop();
 
-  CRect viewport;
-  if(m_stereoMode != RENDER_STEREO_MODE_SPLIT_VERTICAL && m_stereoMode != RENDER_STEREO_MODE_SPLIT_HORIZONTAL
-  || m_stereoView == RENDER_STEREO_VIEW_OFF)
+  CRect viewport(0, 0, (float)m_iScreenWidth, (float)m_iScreenHeight);
+  if (m_stereoView != RENDER_STEREO_VIEW_OFF)
   {
-    viewport.y1 = 0.0f;
-    viewport.y2 = (float)m_iScreenHeight;
-    viewport.x1 = 0.0f;
-    viewport.x2 = (float)m_iScreenWidth;
-  }
-  else if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
-  {
-    viewport.y1 = 0.0f;
-    viewport.y2 = (float)m_iScreenHeight;
-    if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
+    if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
     {
-      viewport.x1 = 0.0f;
-      viewport.x2 = (float)m_iScreenWidth*0.5f;
+      if (m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
+        viewport.x2 = (float)m_iScreenWidth*0.5f;
+      else if (m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
+        viewport.x1 = (float)m_iScreenWidth*0.5f;
     }
-    else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
+    else if (m_stereoMode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
     {
-      viewport.x1 = (float)m_iScreenWidth*0.5f;
-      viewport.x2 = (float)m_iScreenWidth;
-    }
-    else
-    {
-      viewport.x1 = 0.0f;
-      viewport.x2 = (float)m_iScreenWidth;
+      if (m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
+        viewport.y2 = (float)m_iScreenHeight*0.5f;
+      else if (m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
+        viewport.y1 = (float)m_iScreenHeight*0.5f;
     }
   }
-  else if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
-  {
-    viewport.x1 = 0.0f;
-    viewport.x2 = (float)m_iScreenWidth;
-    if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
-    {
-      viewport.y1 = 0.0f;
-      viewport.y2 = (float)m_iScreenHeight*0.5f;
-    }
-    else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
-    {
-      viewport.y1 = (float)m_iScreenHeight*0.5f;
-      viewport.y2 = (float)m_iScreenHeight;
-    }
-    else
-    {
-      viewport.y1 = 0.0f;
-      viewport.y2 = (float)m_iScreenHeight;
-    }
-  }
+
   m_viewStack.push(viewport);
   g_Windowing.SetStereoMode(m_stereoMode, m_stereoView);
   g_Windowing.SetViewPort(viewport);
