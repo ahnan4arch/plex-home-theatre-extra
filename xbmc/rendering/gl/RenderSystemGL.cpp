@@ -581,8 +581,8 @@ void CRenderSystemGL::SetViewPort(CRect& viewPort)
   if (!m_bRenderCreated)
     return;
 
-  glScissor((GLint) viewPort.x1, (GLint) (m_height - viewPort.y1 - viewPort.Height()), (GLsizei) viewPort.Width(), (GLsizei) viewPort.Height());
-  glViewport((GLint) viewPort.x1, (GLint) (m_height - viewPort.y1 - viewPort.Height()), (GLsizei) viewPort.Width(), (GLsizei) viewPort.Height());
+  glScissor((GLint) viewPort.x1, (GLint) viewPort.y1, (GLsizei) viewPort.Width(), (GLsizei) viewPort.Height());
+  glViewport((GLint) viewPort.x1, (GLint) viewPort.y1, (GLsizei) viewPort.Width(), (GLsizei) viewPort.Height());
 }
 
 void CRenderSystemGL::SetScissors(const CRect &rect)
