@@ -718,30 +718,17 @@ void CGraphicContext::UpdateFinalTransform(const TransformMatrix &matrix)
 
   m_finalTransform.Reset();
 
-  if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
+  if (m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
   {
-    if     (m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
-    {
-      m_finalTransform *= TransformMatrix::CreateScaler(0.5, 1.0, 1.0);
-    }
-    else if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
-    {
-      m_finalTransform *= TransformMatrix::CreateScaler(1.0, 0.5, 1.0);
-    }
-  }
-  else if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
-  {
-    m_finalTransform.Reset();
-    if     (m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
-    {
-      m_finalTransform *= TransformMatrix::CreateScaler(0.5, 1.0, 1.0);
+    m_finalTransform *= TransformMatrix::CreateScaler(0.5, 1.0, 1.0);
+    if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
       m_finalTransform *= TransformMatrix::CreateTranslation((float)m_iScreenWidth, 0.0, 0.0);
-    }
-    else if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
-    {
-      m_finalTransform *= TransformMatrix::CreateScaler(1.0, 0.5, 1.0);
+  }
+  else if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
+  {
+    m_finalTransform *= TransformMatrix::CreateScaler(1.0, 0.5, 1.0);
+    if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
       m_finalTransform *= TransformMatrix::CreateTranslation(0.0, (float)m_iScreenHeight, 0.0);
-    }
   }
 
   m_finalTransform *= matrix;
