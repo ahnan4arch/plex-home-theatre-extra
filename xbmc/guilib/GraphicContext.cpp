@@ -261,18 +261,18 @@ const CRect CGraphicContext::GetViewWindow() const
     rect.x2 = (float)g_settings.m_ResInfo[m_Resolution].Overscan.right;
     rect.y2 = (float)g_settings.m_ResInfo[m_Resolution].Overscan.bottom;
 
-    if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
+    if (m_stereoMode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
     {
-      if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
+      if (m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
         rect.y2 *= 0.5f;
-      if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
+      else if (m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
         rect.y1 += rect.y2 * 0.5f;
     }
-    if(m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
+    else if (m_stereoMode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
     {
-      if(m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
+      if (m_stereoView == RENDER_STEREO_VIEW_FIRST_PASS)
         rect.x2 *= 0.5f;
-      if(m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
+      else if (m_stereoView == RENDER_STEREO_VIEW_SECOND_PASS)
         rect.x1 += rect.x2 * 0.5f;
     }
     return rect;
