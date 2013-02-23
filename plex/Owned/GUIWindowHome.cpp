@@ -182,7 +182,12 @@ void CPlexSectionFanout::Refresh()
   else if (m_sectionType == PLEX_METADATA_MIXED)
   {
     if (!g_advancedSettings.m_bHideFanouts)
-      LoadSection(MyPlexManager::Get().getPlaylistUrl("/queue/unwatched"), CONTENT_LIST_QUEUE);
+    {
+      if (m_url.Find("queue") != -1)
+        LoadSection(MyPlexManager::Get().getPlaylistUrl("/queue/unwatched"), CONTENT_LIST_QUEUE);
+      else if (m_url.Find("recommendations") != -1)
+        LoadSection(MyPlexManager::Get().getPlaylistUrl("/recommendations/unwatched"), CONTENT_LIST_QUEUE);
+    }
   }
   else
   {
@@ -205,7 +210,13 @@ void CPlexSectionFanout::OnJobComplete(unsigned int jobID, bool success, CJob *j
 {
   CPlexSectionLoadJob *load = (CPlexSectionLoadJob*)job;
   if (success)
+  {
     m_fileLists[load->GetContentType()] = load->GetFileItemList();
+    
+    /* Pre-cache stuff */
+    if (load->GetContentType() != CONTENT_LIST_FANART)
+      m_videoThumb.Load(*m_fileLists[load->GetContentType()].get());
+  }
 
   m_age.restart();
 
@@ -276,7 +287,9 @@ CGUIWindowHome::CGUIWindowHome(void) : CGUIWindow(WINDOW_HOME, "Home.xml"), m_gl
 //////////////////////////////////////////////////////////////////////////////
 bool CGUIWindowHome::OnAction(const CAction &action)
 {
-  if (action.GetID() == ACTION_PREVIOUS_MENU && GetFocusedControlID() > 9000)
+  /* > 9000 is the fans and 506 is preferences */
+  if ((action.GetID() == ACTION_PREVIOUS_MENU || action.GetID() == ACTION_NAV_BACK) &&
+      (GetFocusedControlID() > 9000 || GetFocusedControlID() == 506))
   {
     CGUIMessage msg(GUI_MSG_SETFOCUS, GetID(), 300);
     OnMessage(msg);
@@ -461,12 +474,6 @@ bool CGUIWindowHome::CheckTimer(const CStdString& strExisting, const CStdString&
 typedef pair<string, HostSourcesPtr> string_sources_pair;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-static bool compare(CFileItemPtr first, CFileItemPtr second)
-{
-  return first->GetLabel() < second->GetLabel();
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 bool CGUIWindowHome::OnMessage(CGUIMessage& message)
 {
   if (message.GetMessage() ==  GUI_MSG_WINDOW_DEINIT)
@@ -568,10 +575,6 @@ bool CGUIWindowHome::OnMessage(CGUIMessage& message)
       }
     }
       break;
-    case GUI_MSG_UPDATE_SOURCES:
-    {
-      CLog::Log(LOGDEBUG, "GUIWindowHome::OnMessage update sources dude...");
-    }
   }
 
   return ret;
@@ -655,6 +658,17 @@ void CGUIWindowHome::UpdateSections()
       queue->SetPath(queue->GetProperty("key").asString());
       newSections.push_back(queue);
     }
+    
+    CFileItemList recommendations;
+    if (MyPlexManager::Get().getPlaylist(recommendations, "recommendations", true) && recommendations.Size() > 0)
+    {
+      CFileItemPtr rec = CFileItemPtr(new CFileItem(g_localizeStrings.Get(44022)));
+      rec->SetProperty("type", "mixed");
+      rec->SetProperty("typeNumber", PLEX_METADATA_MIXED);
+      rec->SetProperty("key", MyPlexManager::Get().getPlaylistUrl("recommendations"));
+      rec->SetPath(rec->GetProperty("key").asString());
+      newSections.push_back(rec);
+    }
 
     // Add the shared content menu if needed.
     if (PlexLibrarySectionManager::Get().getNumSharedSections() > 0)
@@ -666,7 +680,6 @@ void CGUIWindowHome::UpdateSections()
     }
 
     // Now add the new ones.
-    bool itemStillExists = false;
     int id = 1000;
     BOOST_FOREACH(CFileItemPtr item, newSections)
     {
