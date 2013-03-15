@@ -2576,7 +2576,7 @@ bool CGUIInfoManager::GetBool(int condition1, int contextWindow, const CGUIListI
     case MUSICPLAYER_HAS_NEW_COVER_NEXT:
       {
         bReturn = false;
-        if (g_playlistPlayer.GetCurrentPlaylist() == PLAYLIST_MUSIC)
+        if (g_playlistPlayer.GetCurrentPlaylist() == PLAYLIST_MUSIC /*PLEX*/ && g_playlistPlayer.GetCurrentSong() >= 0 /* END PLEX */)
         {
           if (g_playlistPlayer.GetCurrentSong() < (g_playlistPlayer.GetPlaylist(PLAYLIST_MUSIC).size() - 1))
           {
@@ -5540,7 +5540,7 @@ void CGUIInfoManager::SetCurrentSlide(CFileItem &item)
 {
   if (m_currentSlide->GetPath() != item.GetPath())
   {
-    if (!item.HasPictureInfoTag() && !item.GetPictureInfoTag()->Loaded())
+    if (!item.GetPictureInfoTag()->Loaded()) // If picture metadata has not been loaded yet, load it now
       item.GetPictureInfoTag()->Load(item.GetPath());
     *m_currentSlide = item;
   }

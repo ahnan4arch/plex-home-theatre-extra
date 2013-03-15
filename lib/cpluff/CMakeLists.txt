@@ -78,6 +78,10 @@ set(libcpluff_srcs
   libcpluff/util.c
 )
 
+if(CMAKE_C_COMPILER_ID STREQUAL "Clang" OR CMAKE_C_COMPILER_ID STREQUAL "GNU")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-format")
+endif(CMAKE_C_COMPILER_ID STREQUAL "Clang" OR CMAKE_C_COMPILER_ID STREQUAL "GNU")
+
 if(TARGET_WIN32)
   set(libcpluff_srcs ${libcpluff_srcs} libcpluff/thread_windows.c libcpluff/win32/dirent.c)
   add_library(cpluff SHARED ${libcpluff_srcs})
@@ -87,10 +91,10 @@ else(TARGET_WIN32)
   set(libcpluff_srcs ${libcpluff_srcs} libcpluff/thread_posix.c)
   if(TARGET_COMMON_DARWIN)
     add_library(cpluff-${ARCH} MODULE ${libcpluff_srcs})
-    install(TARGETS cpluff-${ARCH} DESTINATION ${RESOURCEPATH}/system)
+    install(TARGETS cpluff-${ARCH} DESTINATION ${RESOURCEPATH}/system COMPONENT RUNTIME)
   elseif(TARGET_POSIX)
     add_library(cpluff-${ARCH} SHARED ${libcpluff_srcs})
-    install(TARGETS cpluff-${ARCH} DESTINATION ${BINPATH}/system)
+    install(TARGETS cpluff-${ARCH} DESTINATION ${BINPATH}/system COMPONENT RUNTIME)
   endif(TARGET_COMMON_DARWIN)
   target_link_libraries(cpluff-${ARCH} ${EXPAT_LIBRARIES})
 endif(TARGET_WIN32)

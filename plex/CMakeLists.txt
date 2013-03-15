@@ -24,6 +24,10 @@ add_subdirectory(Players)
 add_subdirectory(Utility)
 add_subdirectory(AutoUpdate)
 
+if(TARGET_WIN32)
+  add_subdirectory(Resources/MCE)
+endif(TARGET_WIN32)
+
 if(TARGET_OSX)
   add_subdirectory(Helper)
 endif(TARGET_OSX)
@@ -35,12 +39,9 @@ list(APPEND plex_SRCS Resources/Plex.rc)
 list(APPEND plex_SRCS Resources/Plex.rc2)
 
 set(Headers PlexTypes.h)
-if(TARGET_OSX)
-  list(REMOVE_ITEM plex_SRCS ./CocoaUtils.cpp)
-else(TARGET_OSX)
-  list(REMOVE_ITEM plex_SRCS ./CocoaUtils.m)
-  list(REMOVE_ITEM plex_SRCS ./CocoaUtilsPlus.mm)
-endif(TARGET_OSX)
+if(NOT TARGET_OSX)
+  list(REMOVE_ITEM plex_SRCS ./PlexMacUtils.mm)
+endif(NOT TARGET_OSX)
 
 if(NOT TARGET_WIN32)
   list(REMOVE_ITEM plex_SRCS ./MediaCenterLaunchHost.cpp)
@@ -83,11 +84,18 @@ if(COMPRESS_TEXTURES)
     set(TEXTURE_PACKER_BIN ${CMAKE_BINARY_DIR}/tools/TexturePacker/TexturePacker)
   endif()
 
+  if(WIN32)
+    set(WORKDIR ${root}/tools/TexturePacker)
+  else(WIN32)
+    set(WORKDIR ${CMAKE_CURRENT_BINARY_DIR})
+  endif(WIN32)
+
   add_custom_command(
     OUTPUT Textures_MediaStream.xbt
-    COMMAND ${TEXTURE_PACKER_BIN} -input ${root}/addons/skin.mediastream/Media -output Textures_MediaStream.xbt
+    COMMAND ${TEXTURE_PACKER_BIN} -input ${root}/addons/skin.mediastream/Media -output ${CMAKE_CURRENT_BINARY_DIR}/Textures_MediaStream.xbt
     MAIN_DEPENDENCY ${MEDIA_IMAGES_MEDIASTREAM}
     DEPENDS TexturePacker
+    WORKING_DIRECTORY ${WORKDIR}
   )
 
   add_custom_target(CompressTextures ALL DEPENDS Textures_MediaStream.xbt)
@@ -137,13 +145,13 @@ install(DIRECTORY ${root}/addons DESTINATION ${RESOURCEPATH} COMPONENT RUNTIME
         PATTERN xbmc.python EXCLUDE
 )
 
-if(ENABLE_PYTHON)
-  install(DIRECTORY ${dependdir}/lib/python2.7 DESTINATION ${LIBPATH}/lib/ COMPONENT RUNTIME 
-    PATTERN python2.7/test EXCLUDE
+if(ENABLE_PYTHON AND TARGET_OSX)
+  install(DIRECTORY ${dependdir}/lib/python2.6 DESTINATION ${LIBPATH}/lib/ COMPONENT RUNTIME 
+    PATTERN python2.6/test EXCLUDE
     REGEX .*\\.pyc$ EXCLUDE
     REGEX .*\\.pyo$ EXCLUDE
   )
-  install(FILES ${dependdir}/include/python2.7/pyconfig.h DESTINATION ${LIBPATH}/include/python2.7 COMPONENT RUNTIME)
+  install(FILES ${dependdir}/include/python2.6/pyconfig.h DESTINATION ${LIBPATH}/include/python2.6 COMPONENT RUNTIME)
 endif()
 
 if(NOT DEFINED PLEX_SPLASH)
@@ -174,17 +182,18 @@ elseif(TARGET_WIN32)
 endif()
 
 if(TARGET_OSX)
+  set(DSYM_FNAME "${EXECUTABLE_NAME}-${PLEX_VERSION_STRING}-${OSX_ARCH}.dSYM")
   add_custom_command(
-    OUTPUT "${EXECUTABLE_NAME}.dSYM"
-    COMMAND dsymutil -o "${CMAKE_CURRENT_BINARY_DIR}/${EXECUTABLE_NAME}.dSYM" "${CMAKE_CURRENT_BINARY_DIR}/${EXECUTABLE_NAME}.app/Contents/MacOS/${EXECUTABLE_NAME}"
+    OUTPUT "${DSYM_FNAME}"
+    COMMAND dsymutil -o "${CMAKE_CURRENT_BINARY_DIR}/${DSYM_FNAME}" "${CMAKE_CURRENT_BINARY_DIR}/${EXECUTABLE_NAME}.app/Contents/MacOS/${EXECUTABLE_NAME}"
     DEPENDS ${PLEX_TARGET_NAME}
   )
   add_custom_command(
-    OUTPUT "${EXECUTABLE_NAME}.dSYM.zip"
-    COMMAND ditto -c -k "${CMAKE_CURRENT_BINARY_DIR}/${EXECUTABLE_NAME}.dSYM" "${CMAKE_CURRENT_BINARY_DIR}/${EXECUTABLE_NAME}.dSYM.zip"
-    DEPENDS "${EXECUTABLE_NAME}.dSYM"
+    OUTPUT "${DSYM_FNAME}.zip"
+    COMMAND ditto -c -k "${CMAKE_CURRENT_BINARY_DIR}/${DSYM_FNAME}" "${CMAKE_CURRENT_BINARY_DIR}/${DSYM_FNAME}.zip"
+    DEPENDS "${DSYM_FNAME}"
   )
-  add_custom_target(Symbols DEPENDS "${EXECUTABLE_NAME}.dSYM.zip")
+  add_custom_target(Symbols DEPENDS "${DSYM_FNAME}.zip")
 endif()
 
 if(CREATE_BUNDLE)

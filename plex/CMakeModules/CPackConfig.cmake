@@ -4,7 +4,7 @@ set(CPACK_PACKAGE_VERSION_MAJOR ${PLEX_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${PLEX_VERSION_MINOR})
 set(CPACK_PACKAGE_VERSION_PATCH ${PLEX_VERSION_PATCH}0${PLEX_VERSION_SMALL})
 if(TARGET_OSX)
-  set(CPACK_SYSTEM_NAME "macosx-x86")
+  set(CPACK_SYSTEM_NAME "macosx-${OSX_ARCH}")
 elseif(TARGET_WIN32)
   set(CPACK_SYSTEM_NAME "windows-x86")
   # use a shorter path to hopefully avoid stupid windows 260 chars path.
@@ -15,8 +15,10 @@ endif()
 set(CPACK_PACKAGE_FILE_NAME "${PLEX_TARGET_NAME}-${PLEX_VERSION_STRING}-${CPACK_SYSTEM_NAME}")
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${PLEX_TARGET_NAME}-${PLEX_VERSION_STRING}-src")
 
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "Plex Home Theater")
 set(CPACK_COMPONENT_QDXSETUP_DISPLAY_NAME "DirectX Installer")
 set(CPACK_COMPONENT_VCREDIST_DISPLAY_NAME "Visual Studio 2010 redistribution installer")
+set(CPACK_COMPONENT_MCE_DISPLAY_NAME "Microsoft Media Center Integration")
 set(CPACK_COMPONENT_RUNTIME_DISPLAY_NAME "Plex for Home Theater")
 set(CPACK_COMPONENT_RUNTIME_REQUIRED 1)
 
@@ -70,11 +72,9 @@ set(CPACK_SOURCE_IGNORE_FILES
   "^${PROJECT_SOURCE_DIR}/upload"
 )
 
-# We want to make sure that CPack uses our own NSIS.template.in
-list(APPEND CMAKE_MODULE_PATH ${plexdir}/Resources)
-
 if(TARGET_WIN32)
   add_custom_target(signed_package ${plexdir}/scripts/WindowsSign.cmd ${CPACK_PACKAGE_DIRECTORY}/${CPACK_PACKAGE_FILE_NAME}.exe DEPENDS package)
 endif()
 
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/plex/CMakeModules ${CMAKE_MODULE_PATH})
 include(CPack)

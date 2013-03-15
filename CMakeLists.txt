@@ -30,7 +30,7 @@ configure_file(${plexdir}/git_revision.h.in git_revision.h)
 set(PLEX_VERSION_MAJOR 0)
 set(PLEX_VERSION_MINOR 9)
 set(PLEX_VERSION_PATCH 9)
-set(PLEX_VERSION_SMALL 5)
+set(PLEX_VERSION_SMALL 6)
 if(DEFINED ENV{BUILD_NUMBER})
   set(PLEX_VERSION_BUILD ".$ENV{BUILD_NUMBER}")
 else()
@@ -63,6 +63,7 @@ include_directories(
   ${dependdir}/include/freetype2
   ${dependdir}/include/python2.6
   ${dependdir}/include/python2.7
+  ${ffmpegdir}/include
   ${root}/xbmc
 )
 

@@ -90,10 +90,9 @@ using namespace boost;
 
 
 //////////////////////////////////////////////////////////////////////////////
-CPlexSectionFanout::CPlexSectionFanout(CGUIWindowHome *home, const CStdString &url, int sectionType)
+CPlexSectionFanout::CPlexSectionFanout(const CStdString &url, int sectionType)
   : m_url(url), m_sectionType(sectionType)
 {
-  m_home = home;
   Refresh();
 }
 
@@ -228,13 +227,13 @@ void CPlexSectionFanout::OnJobComplete(unsigned int jobID, bool success, CJob *j
   {
     CGUIMessage msg(GUI_MSG_PLEX_SECTION_LOADED, WINDOW_HOME, 300, m_sectionType);
     msg.SetStringParam(m_url);
-    m_home->OnMessage(msg);
+    g_windowManager.SendThreadMessage(msg);
   }
   else if (load->GetContentType() == CONTENT_LIST_FANART)
   {
     CGUIMessage msg(GUI_MSG_PLEX_SECTION_LOADED, WINDOW_HOME, 300, CONTENT_LIST_FANART);
     msg.SetStringParam(m_url);
-    m_home->OnMessage(msg);
+    g_windowManager.SendThreadMessage(msg);
   }
 }
 
@@ -248,11 +247,11 @@ void CPlexSectionFanout::Show()
     /* we are up to date, just send the messages */
     CGUIMessage msg(GUI_MSG_PLEX_SECTION_LOADED, WINDOW_HOME, 300, m_sectionType);
     msg.SetStringParam(m_url);
-    m_home->OnMessage(msg);
+    g_windowManager.SendThreadMessage(msg);
 
     CGUIMessage msg2(GUI_MSG_PLEX_SECTION_LOADED, WINDOW_HOME, 300, CONTENT_LIST_FANART);
     msg2.SetStringParam(m_url);
-    m_home->OnMessage(msg2);
+    g_windowManager.SendThreadMessage(msg2);
   }
 }
 
@@ -274,7 +273,7 @@ bool CPlexSectionFanout::NeedsRefresh()
 }
 
 //////////////////////////////////////////////////////////////////////////////
-CGUIWindowHome::CGUIWindowHome(void) : CGUIWindow(WINDOW_HOME, "Home.xml"), m_globalArt(true), m_lastSelectedItem("Search")
+CGUIWindowHome::CGUIWindowHome(void) : CGUIWindow(WINDOW_HOME, "Home.xml"), m_globalArt(false), m_lastSelectedItem("Search")
 {
   if (g_advancedSettings.m_iShowFirstRun != 77)
   {
@@ -321,7 +320,7 @@ bool CGUIWindowHome::OnAction(const CAction &action)
       if (pItem)
       {
         m_lastSelectedItem = GetCurrentItemName();
-        if (!ShowSection(pItem->GetProperty("sectionPath").asString()))
+        if (!ShowSection(pItem->GetProperty("sectionPath").asString()) && !m_globalArt)
         {
           HideAllLists();
           ShowSection("global://art");
@@ -614,10 +613,9 @@ void CGUIWindowHome::UpdateSections()
         newList.push_back(item);
     }
 
-    // Now collect all the added items.
-    CPlexSourceScanner::Lock();
 
-    map<string, HostSourcesPtr>& sourcesMap = CPlexSourceScanner::GetMap();
+    map<string, HostSourcesPtr> sourcesMap;
+    CPlexSourceScanner::GetMap(sourcesMap);
 
     // Collect the channels, keeping track of how many there are.
     int numVideo = 0;
@@ -632,9 +630,7 @@ void CGUIWindowHome::UpdateSections()
       numMusic += nameSource.second->musicSources.size();
       numApplication += nameSource.second->applicationSources.size();
     }
-
-    CPlexSourceScanner::Unlock();
-
+    
     // Now collect the library sections.
     vector<CFileItemPtr> newSections;
     PlexLibrarySectionManager::Get().getOwnedSections(newSections);
@@ -785,7 +781,7 @@ void CGUIWindowHome::AddSection(const CStdString &url, int type)
 {
   if (m_sections.find(url) == m_sections.end())
   {
-    CPlexSectionFanout* fan = new CPlexSectionFanout(this, url, type);
+    CPlexSectionFanout* fan = new CPlexSectionFanout(url, type);
     m_sections[url] = fan;
   }
 }
@@ -887,6 +883,12 @@ bool CGUIWindowHome::ShowSection(const CStdString &url)
   {
     CPlexSectionFanout* section = m_sections[url];
     section->Show();
+    
+    if (url == "global://art")
+      m_globalArt = true;
+    else
+      m_globalArt = false;
+    
     return true;
   }
   return false;

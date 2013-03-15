@@ -13,4 +13,9 @@ else(TARGET_COMMON_DARWIN)
     list(APPEND bus_os_SRCS linux/PeripheralBusUSBLibUdev.h)
   endif()
 endif()
+
+if(HAVE_LIBCEC OR TARGET_WIN32)
+  list(APPEND bus_SRCS virtual/PeripheralBusCEC.cpp)
+endif(HAVE_LIBCEC OR TARGET_WIN32)
+
 add_sources(${bus_SRCS} ${bus_os_SRCS})

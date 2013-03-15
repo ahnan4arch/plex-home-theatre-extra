@@ -45,6 +45,10 @@ else(TARGET_COMMON_LINUX)
   ADD_DEFINITIONS(-DLINUX -DSTBI_NO_DDS)
 endif(TARGET_COMMON_DARWIN)
 
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-format -Wno-parentheses-equality -Wno-enum-conversion -Wno-deprecated-writable-strings -Wno-default-arg-special-member")
+endif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+
 set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} ${PLEX_LINK_WRAPPED}")
 find_program(ZIP zip)
 
@@ -54,9 +58,9 @@ if(ZIP)
     COMMAND ${ZIP} -q -j presets.zip ${CMAKE_CURRENT_SOURCE_DIR}/libprojectM/presets/*
   )
   add_custom_target(ProjectMPresets ALL DEPENDS presets.zip)
-  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/presets.zip DESTINATION ${RESOURCEPATH}/addons/visualization.projectm/resources)
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/presets.zip DESTINATION ${RESOURCEPATH}/addons/visualization.projectm/resources COMPONENT RUNTIME)
 endif()
 
 add_library(projectM MODULE ${src})
 target_link_libraries(projectM wrapper ${CONFIG_LIBRARY_OPENGL})
-install(TARGETS projectM DESTINATION ${RESOURCEPATH}/addons/visualization.projectm)
+install(TARGETS projectM DESTINATION ${RESOURCEPATH}/addons/visualization.projectm COMPONENT RUNTIME)

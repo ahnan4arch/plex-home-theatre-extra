@@ -17,8 +17,6 @@
 #include "TimeUtils.h"
 #include "Album.h"
 #include "AdvancedSettings.h"
-#include "CocoaUtilsPlus.h"
-#include "CocoaUtils.h"
 #include "File.h"
 #include "PlexDirectory.h"
 #include "DirectoryCache.h"
@@ -47,14 +45,14 @@
 
 #include "GUIInfoManager.h"
 
+#include "LangInfo.h"
+
 using namespace std;
 using namespace XFILE;
 
 #define MASTER_PLEX_MEDIA_SERVER "http://localhost:32400"
 #define MAX_THUMBNAIL_AGE (3600*24*2)
 #define MAX_FANART_AGE    (3600*24*7)
-
-bool Cocoa_IsHostLocal(const string& host);
 
 CFileItemListPtr CPlexDirectory::g_filterList;
 std::vector<CStdString> g_homeVideoMap;
@@ -212,7 +210,7 @@ bool CPlexDirectory::ReallyGetDirectory(const CStdString& strPath, CFileItemList
 
   // Is the server local?
   CURL url(m_url);
-  bool localServer = Cocoa_IsHostLocal(url.GetHostName());
+  bool localServer = NetworkInterface::IsLocalAddress(url.GetHostName());
   
   // Save some properties.
   if (root->Attribute("updatedAt"))
@@ -359,6 +357,7 @@ bool CPlexDirectory::ReallyGetDirectory(const CStdString& strPath, CFileItemList
     items.SetDefaultViewMode(boost::lexical_cast<int>(viewMode));
     CGUIViewState* viewState = CGUIViewState::GetViewState(0, items);
     viewState->SaveViewAsControl(boost::lexical_cast<int>(viewMode));
+    delete viewState;
   }
 
   // The view group.
@@ -1914,7 +1913,7 @@ void CPlexDirectory::Process()
 
   // Only send headers if we're NOT going to the node.
   if (url.Get().find("http://node.plexapp.com") == -1 && url.Get().find("http://nodedev.plexapp.com") == -1)
-    m_http.SetRequestHeader("X-Plex-Language", Cocoa_GetLanguage());
+    m_http.SetRequestHeader("X-Plex-Language", g_langInfo.GetLanguageLocale());
 
 #ifdef __APPLE__
   m_http.SetRequestHeader("X-Plex-Client-Platform", "MacOSX");
