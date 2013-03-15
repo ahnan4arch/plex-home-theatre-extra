@@ -1,0 +1,1022 @@
+The system is: Darwin - 12.2.1 - i386
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is Clang, found in "/Users/martin/plex-home-theater-public/CMakeFiles/2.8.10.1/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3551779853
+[1/2] Building C object CMakeFiles/cmTryCompileExec3551779853.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTryCompileExec3551779853
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3780487400
+[1/2] Building C object CMakeFiles/cmTryCompileExec3780487400.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTryCompileExec3780487400
+Apple LLVM version 4.2 (clang-425.0.24) (based on LLVM 3.2svn)
+Target: x86_64-apple-darwin12.2.1
+Thread model: posix
+ "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.8.0 -o cmTryCompileExec3780487400 -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec3780487400.dir/CMakeCCompilerABI.c.o -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/local/bin/ninja cmTryCompileExec3780487400]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTryCompileExec3780487400.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTryCompileExec3780487400]
+  ignore line: [Apple LLVM version 4.2 (clang-425.0.24) (based on LLVM 3.2svn)]
+  ignore line: [Target: x86_64-apple-darwin12.2.1]
+  ignore line: [Thread model: posix]
+  link line: [ "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.8.0 -o cmTryCompileExec3780487400 -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec3780487400.dir/CMakeCCompilerABI.c.o -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
+    arg [/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.8.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec3780487400] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec3780487400.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lSystem] ==> lib [System]
+    arg [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a] ==> lib [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
+  remove lib [System]
+  implicit libs: [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
+  implicit dirs: []
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is Clang, found in "/Users/martin/plex-home-theater-public/CMakeFiles/2.8.10.1/CompilerIdCXX/a.out"
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec4272580118
+[1/2] Building CXX object CMakeFiles/cmTryCompileExec4272580118.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTryCompileExec4272580118
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec205832699
+[1/2] Building CXX object CMakeFiles/cmTryCompileExec205832699.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTryCompileExec205832699
+Apple LLVM version 4.2 (clang-425.0.24) (based on LLVM 3.2svn)
+Target: x86_64-apple-darwin12.2.1
+Thread model: posix
+ "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.8.0 -o cmTryCompileExec205832699 -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec205832699.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/local/bin/ninja cmTryCompileExec205832699]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTryCompileExec205832699.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTryCompileExec205832699]
+  ignore line: [Apple LLVM version 4.2 (clang-425.0.24) (based on LLVM 3.2svn)]
+  ignore line: [Target: x86_64-apple-darwin12.2.1]
+  ignore line: [Thread model: posix]
+  link line: [ "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.8.0 -o cmTryCompileExec205832699 -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec205832699.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
+    arg [/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.8.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec205832699] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec205832699.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lSystem] ==> lib [System]
+    arg [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a] ==> lib [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
+  remove lib [System]
+  implicit libs: [stdc++;/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
+  implicit dirs: []
+
+
+Determining if files arpa/inet.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3190217744
+[1/2] Building C object CMakeFiles/cmTryCompileExec3190217744.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3190217744
+
+
+Determining if files dirent.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec128764450
+[1/2] Building C object CMakeFiles/cmTryCompileExec128764450.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec128764450
+
+
+Determining if files fcntl.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1924323391
+[1/2] Building C object CMakeFiles/cmTryCompileExec1924323391.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec1924323391
+
+
+Determining if files float.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec4092166208
+[1/2] Building C object CMakeFiles/cmTryCompileExec4092166208.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec4092166208
+
+
+Determining if files inttypes.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3569104095
+[1/2] Building C object CMakeFiles/cmTryCompileExec3569104095.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3569104095
+
+
+Determining if files limits.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3707574661
+[1/2] Building C object CMakeFiles/cmTryCompileExec3707574661.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3707574661
+
+
+Determining if files locale.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2072578658
+[1/2] Building C object CMakeFiles/cmTryCompileExec2072578658.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec2072578658
+
+
+Determining if files memory.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2981260157
+[1/2] Building C object CMakeFiles/cmTryCompileExec2981260157.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec2981260157
+
+
+Determining if files netdb.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2846840880
+[1/2] Building C object CMakeFiles/cmTryCompileExec2846840880.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec2846840880
+
+
+Determining if files netinet/in.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3825882680
+[1/2] Building C object CMakeFiles/cmTryCompileExec3825882680.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3825882680
+
+
+Determining if files stdbool.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1275980880
+[1/2] Building C object CMakeFiles/cmTryCompileExec1275980880.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec1275980880
+
+
+Determining if files stddef.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec194229413
+[1/2] Building C object CMakeFiles/cmTryCompileExec194229413.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec194229413
+
+
+Determining if files stdint.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3427924471
+[1/2] Building C object CMakeFiles/cmTryCompileExec3427924471.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3427924471
+
+
+Determining if files stdlib.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec526656753
+[1/2] Building C object CMakeFiles/cmTryCompileExec526656753.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec526656753
+
+
+Determining if files strings.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2747498562
+[1/2] Building C object CMakeFiles/cmTryCompileExec2747498562.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec2747498562
+
+
+Determining if files string.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3872974624
+[1/2] Building C object CMakeFiles/cmTryCompileExec3872974624.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3872974624
+
+
+Determining if files sys/dir.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3116783838
+[1/2] Building C object CMakeFiles/cmTryCompileExec3116783838.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3116783838
+
+
+Determining if files sys/file.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2137950599
+[1/2] Building C object CMakeFiles/cmTryCompileExec2137950599.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec2137950599
+
+
+Determining if files sys/ioctl.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec4124378929
+[1/2] Building C object CMakeFiles/cmTryCompileExec4124378929.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec4124378929
+
+
+Determining if files sys/mount.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec136169406
+[1/2] Building C object CMakeFiles/cmTryCompileExec136169406.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec136169406
+
+
+Determining if files sys/param.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec802457706
+[1/2] Building C object CMakeFiles/cmTryCompileExec802457706.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec802457706
+
+
+Determining if files sys/select.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec4241232363
+[1/2] Building C object CMakeFiles/cmTryCompileExec4241232363.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec4241232363
+
+
+Determining if files sys/socket.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec705865663
+[1/2] Building C object CMakeFiles/cmTryCompileExec705865663.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec705865663
+
+
+Determining if files sys/stat.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec4020206515
+[1/2] Building C object CMakeFiles/cmTryCompileExec4020206515.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec4020206515
+
+
+Determining if files sys/timeb.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3380150507
+[1/2] Building C object CMakeFiles/cmTryCompileExec3380150507.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3380150507
+
+
+Determining if files sys/time.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec7553534
+[1/2] Building C object CMakeFiles/cmTryCompileExec7553534.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec7553534
+
+
+Determining if files sys/types.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1550325958
+[1/2] Building C object CMakeFiles/cmTryCompileExec1550325958.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec1550325958
+
+
+Determining if files termios.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2254274263
+[1/2] Building C object CMakeFiles/cmTryCompileExec2254274263.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec2254274263
+
+
+Determining if files unistd.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3618119922
+[1/2] Building C object CMakeFiles/cmTryCompileExec3618119922.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3618119922
+
+
+Determining if files utime.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2932485951
+[1/2] Building C object CMakeFiles/cmTryCompileExec2932485951.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec2932485951
+
+
+Determining if files wchar.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3199427157
+[1/2] Building C object CMakeFiles/cmTryCompileExec3199427157.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec3199427157
+
+
+Determining if files wctype.h exist passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec4105274284
+[1/2] Building C object CMakeFiles/cmTryCompileExec4105274284.dir/CheckIncludeFiles.c.o
+[2/2] Linking C executable cmTryCompileExec4105274284
+
+
+Determining if the function alarm exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2099918218
+[1/2] Building C object CMakeFiles/cmTryCompileExec2099918218.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec2099918218
+
+
+Determining if the function atexit exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2347946867
+[1/2] Building C object CMakeFiles/cmTryCompileExec2347946867.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec2347946867
+
+
+Determining if the function chown exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1837383024
+[1/2] Building C object CMakeFiles/cmTryCompileExec1837383024.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec1837383024
+
+
+Determining if the function dup2 exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3622494630
+[1/2] Building C object CMakeFiles/cmTryCompileExec3622494630.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec3622494630
+
+
+Determining if the function fdatasync exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec797285585
+[1/2] Building C object CMakeFiles/cmTryCompileExec797285585.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec797285585
+
+
+Determining if the function floor exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1265672591
+[1/2] Building C object CMakeFiles/cmTryCompileExec1265672591.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'floor'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS floor
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'floor' is a builtin with type 'double (double)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS floor
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec1265672591
+
+
+Determining if the function ftime exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3345795784
+[1/2] Building C object CMakeFiles/cmTryCompileExec3345795784.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec3345795784
+
+
+Determining if the function ftruncate exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec321030118
+[1/2] Building C object CMakeFiles/cmTryCompileExec321030118.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec321030118
+
+
+Determining if the function getcwd exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1953884560
+[1/2] Building C object CMakeFiles/cmTryCompileExec1953884560.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec1953884560
+
+
+Determining if the function gethostbyaddr exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec429172307
+[1/2] Building C object CMakeFiles/cmTryCompileExec429172307.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec429172307
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec515564176
+[1/2] Building C object CMakeFiles/cmTryCompileExec515564176.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec515564176
+
+
+Determining if the function getpagesize exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec148810998
+[1/2] Building C object CMakeFiles/cmTryCompileExec148810998.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec148810998
+
+
+Determining if the function getpass exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec212781227
+[1/2] Building C object CMakeFiles/cmTryCompileExec212781227.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec212781227
+
+
+Determining if the function gettimeofday exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2520427562
+[1/2] Building C object CMakeFiles/cmTryCompileExec2520427562.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec2520427562
+
+
+Determining if the function inet_ntoa exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec785401340
+[1/2] Building C object CMakeFiles/cmTryCompileExec785401340.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec785401340
+
+
+Determining if the function lchown exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2901372048
+[1/2] Building C object CMakeFiles/cmTryCompileExec2901372048.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec2901372048
+
+
+Determining if the function localeconv exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3531021121
+[1/2] Building C object CMakeFiles/cmTryCompileExec3531021121.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec3531021121
+
+
+Determining if the function memchr exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3367238599
+[1/2] Building C object CMakeFiles/cmTryCompileExec3367238599.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'memchr'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS memchr
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'memchr' is a builtin with type 'void *(const void *, int, unsigned long)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS memchr
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec3367238599
+
+
+Determining if the function memmove exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2021764216
+[1/2] Building C object CMakeFiles/cmTryCompileExec2021764216.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'memmove'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS memmove
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'memmove' is a builtin with type 'void *(void *, const void *, unsigned long)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS memmove
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec2021764216
+
+
+Determining if the function mkdir exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3993997500
+[1/2] Building C object CMakeFiles/cmTryCompileExec3993997500.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec3993997500
+
+
+Determining if the function modf exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2601251419
+[1/2] Building C object CMakeFiles/cmTryCompileExec2601251419.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec2601251419
+
+
+Determining if the function mmap exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3851910564
+[1/2] Building C object CMakeFiles/cmTryCompileExec3851910564.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec3851910564
+
+
+Determining if the function munmap exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2768732468
+[1/2] Building C object CMakeFiles/cmTryCompileExec2768732468.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec2768732468
+
+
+Determining if the function pow exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1372720943
+[1/2] Building C object CMakeFiles/cmTryCompileExec1372720943.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'pow'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS pow
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'pow' is a builtin with type 'double (double, double)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS pow
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec1372720943
+
+
+Determining if the function rmdir exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1137328846
+[1/2] Building C object CMakeFiles/cmTryCompileExec1137328846.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec1137328846
+
+
+Determining if the function select exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1462949538
+[1/2] Building C object CMakeFiles/cmTryCompileExec1462949538.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec1462949538
+
+
+Determining if the function setenv exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec348631573
+[1/2] Building C object CMakeFiles/cmTryCompileExec348631573.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec348631573
+
+
+Determining if the function setlocale exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec4144340520
+[1/2] Building C object CMakeFiles/cmTryCompileExec4144340520.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec4144340520
+
+
+Determining if the function socket exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2691550945
+[1/2] Building C object CMakeFiles/cmTryCompileExec2691550945.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec2691550945
+
+
+Determining if the function sqrt exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2336629151
+[1/2] Building C object CMakeFiles/cmTryCompileExec2336629151.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'sqrt'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS sqrt
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'sqrt' is a builtin with type 'double (double)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS sqrt
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec2336629151
+
+
+Determining if the function strcasecmp exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec4213544021
+[1/2] Building C object CMakeFiles/cmTryCompileExec4213544021.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strcasecmp'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strcasecmp
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strcasecmp' is a builtin with type 'int (const char *, const char *)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strcasecmp
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec4213544021
+
+
+Determining if the function strchr exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3158273499
+[1/2] Building C object CMakeFiles/cmTryCompileExec3158273499.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strchr'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strchr
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strchr' is a builtin with type 'char *(const char *, int)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strchr
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec3158273499
+
+
+Determining if the function strcoll exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2179931999
+[1/2] Building C object CMakeFiles/cmTryCompileExec2179931999.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec2179931999
+
+
+Determining if the function strcspn exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec21181068
+[1/2] Building C object CMakeFiles/cmTryCompileExec21181068.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strcspn'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strcspn
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strcspn' is a builtin with type 'unsigned long (const char *, const char *)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strcspn
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec21181068
+
+
+Determining if the function strdup exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec29420408
+[1/2] Building C object CMakeFiles/cmTryCompileExec29420408.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strdup'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strdup
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strdup' is a builtin with type 'char *(const char *)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strdup
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec29420408
+
+
+Determining if the function strerror exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3583664038
+[1/2] Building C object CMakeFiles/cmTryCompileExec3583664038.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strerror'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strerror
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strerror' is a builtin with type 'char *(int)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strerror
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec3583664038
+
+
+Determining if the function strftime exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1357135845
+[1/2] Building C object CMakeFiles/cmTryCompileExec1357135845.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec1357135845
+
+
+Determining if the function strncasecmp exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2459731099
+[1/2] Building C object CMakeFiles/cmTryCompileExec2459731099.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strncasecmp'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strncasecmp
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strncasecmp' is a builtin with type 'int (const char *, const char *, unsigned long)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strncasecmp
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec2459731099
+
+
+Determining if the function strpbrk exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec903436245
+[1/2] Building C object CMakeFiles/cmTryCompileExec903436245.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strpbrk'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strpbrk
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strpbrk' is a builtin with type 'char *(const char *, const char *)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strpbrk
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec903436245
+
+
+Determining if the function strrchr exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec491179002
+[1/2] Building C object CMakeFiles/cmTryCompileExec491179002.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strrchr'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strrchr
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strrchr' is a builtin with type 'char *(const char *, int)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strrchr
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec491179002
+
+
+Determining if the function strspn exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3981654385
+[1/2] Building C object CMakeFiles/cmTryCompileExec3981654385.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strspn'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strspn
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strspn' is a builtin with type 'unsigned long (const char *, const char *)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strspn
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec3981654385
+
+
+Determining if the function strstr exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1141151451
+[1/2] Building C object CMakeFiles/cmTryCompileExec1141151451.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'strstr'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strstr
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'strstr' is a builtin with type 'char *(const char *, const char *)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS strstr
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec1141151451
+
+
+Determining if the function strtol exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1451080125
+[1/2] Building C object CMakeFiles/cmTryCompileExec1451080125.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec1451080125
+
+
+Determining if the function strtoul exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1270825850
+[1/2] Building C object CMakeFiles/cmTryCompileExec1270825850.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec1270825850
+
+
+Determining if the function tzset exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1500927020
+[1/2] Building C object CMakeFiles/cmTryCompileExec1500927020.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec1500927020
+
+
+Determining if the function utime exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3528253740
+[1/2] Building C object CMakeFiles/cmTryCompileExec3528253740.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec3528253740
+
+
+Determining if the function vprintf exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2920993224
+[1/2] Building C object CMakeFiles/cmTryCompileExec2920993224.dir/CheckFunctionExists.c.o
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: warning: incompatible redeclaration of library function 'vprintf'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS vprintf
+                              ^
+/usr/local/Cellar/cmake/2.8.10.1/share/cmake/Modules/CheckFunctionExists.c:3:6: note: 'vprintf' is a builtin with type 'int (const char *, __va_list_tag *)'
+char CHECK_FUNCTION_EXISTS();
+     ^
+<command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+#define CHECK_FUNCTION_EXISTS vprintf
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTryCompileExec2920993224
+
+
+Performing C SOURCE FILE Test BASIC_COMPILE_TEST succeded with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec1623768610
+[1/2] Building C object CMakeFiles/cmTryCompileExec1623768610.dir/src.c.o
+[2/2] Linking C executable cmTryCompileExec1623768610
+
+Source file was:
+
+  int main(int argc, char *argv[])
+  { 
+    return 0;
+  }
+
+Performing C SOURCE FILE Test CHECK_CRYSTALHD_VERSION succeded with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec175448533
+[1/2] Building C object CMakeFiles/cmTryCompileExec175448533.dir/src.c.o
+[2/2] Linking C executable cmTryCompileExec175448533
+
+Source file was:
+
+      #include <libcrystalhd/bc_dts_types.h>
+      #include <libcrystalhd/bc_dts_defs.h>
+      PBC_INFO_CRYSTAL bCrystalInfo;
+      int main() {}
+    
+Performing C SOURCE FILE Test HAVE_STRUCT_AUDIOOUTPUT_AO_SET_METADATA succeded with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec2409069754
+[1/2] Building C object CMakeFiles/cmTryCompileExec2409069754.dir/src.c.o
+[2/2] Linking C executable cmTryCompileExec2409069754
+
+Source file was:
+
+    #include <shairport/shairport.h>
+    int main(int argc, char *argv[])
+    { 
+      static struct AudioOutput test;
+      if(sizeof(test.ao_set_metadata))
+        return 0;
+      return 0;
+    }
+  
+Determining if the function stat exists passed with the following output:
+Change Dir: /Users/martin/plex-home-theater-public/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/local/bin/ninja cmTryCompileExec3502362962
+[1/2] Building C object CMakeFiles/cmTryCompileExec3502362962.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTryCompileExec3502362962
+
+
