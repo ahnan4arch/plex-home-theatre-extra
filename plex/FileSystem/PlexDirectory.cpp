@@ -504,6 +504,8 @@ string CPlexDirectory::BuildImageURL(const string& parentURL, const string& imag
     mediaUrl.SetPort(32400);
   }
 
+  if (mediaUrl.GetProtocol() == "https")
+    mediaUrl.SetProtocol("http");
 
   encodedUrl = mediaUrl.Get();
   CURL::Encode(encodedUrl);
@@ -532,6 +534,18 @@ string CPlexDirectory::BuildImageURL(const string& parentURL, const string& imag
   {
     url.SetProtocol("http");
     url.SetPort(32400);
+  }
+  
+  if (url.GetHostName() == "my.plexapp.com")
+  {
+    PlexServerPtr server = PlexServerManager::Get().bestServer();
+    if (server)
+    {
+      url.SetHostName(server->address);
+      url.SetPort(server->port);
+      /* FIXME */
+      url.SetProtocol("http");
+    }
   }
   
   url.SetOptions("");
@@ -807,6 +821,7 @@ class PlexMediaNode
          /* FIXME: attr here might be wrong? */
          mediaItem->SetArt("mediaTag::" + attr, url);
          
+#if !defined(TARGET_RPI) && !defined(TARGET_IOS)
          /* Cache this in the bg */
          if(resource != "studio")
          {
@@ -814,6 +829,7 @@ class PlexMediaNode
              CTextureCache::Get().BackgroundCacheImage(url);
          }
        }
+#endif
 
        string value = val;
 
