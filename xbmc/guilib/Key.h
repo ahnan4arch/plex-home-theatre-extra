@@ -316,6 +316,9 @@
 #define ACTION_FILTER                 233
 
 #define ACTION_MODE3D                 234
+#define ACTION_MODE3D_OFF             235
+#define ACTION_MODE3D_TAB             236
+#define ACTION_MODE3D_SBS             237
 
 // Window ID defines to make the code a bit more readable
 #define WINDOW_INVALID                     9999

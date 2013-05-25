@@ -3117,6 +3117,23 @@ bool CApplication::OnAction(const CAction &action)
     g_guiSettings.SetInt("videoscreen.mode3d", mode);
     CGUIDialogKaiToast::QueueNotification(CGUIDialogKaiToast::Info, g_localizeStrings.Get(36501), g_localizeStrings.Get(36502 + mode));
   }
+  else if (action.GetID() == ACTION_MODE3D_OFF)
+  {
+    int mode = RENDER_STEREO_MODE_OFF;
+    g_guiSettings.SetInt("videoscreen.mode3d", mode);
+  }
+  else if (action.GetID() == ACTION_MODE3D_TAB)
+  {
+    int mode = RENDER_STEREO_MODE_SPLIT_HORIZONTAL;
+    g_guiSettings.SetInt("videoscreen.mode3d", mode);
+    CGUIDialogKaiToast::QueueNotification(CGUIDialogKaiToast::Info, g_localizeStrings.Get(36501), g_localizeStrings.Get(36502 + mode));
+  }
+  else if (action.GetID() == ACTION_MODE3D_SBS)
+  {
+    int mode = RENDER_STEREO_MODE_SPLIT_VERTICAL;
+    g_guiSettings.SetInt("videoscreen.mode3d", mode);
+    CGUIDialogKaiToast::QueueNotification(CGUIDialogKaiToast::Info, g_localizeStrings.Get(36501), g_localizeStrings.Get(36502 + mode));
+  }
   return false;
 }
 
