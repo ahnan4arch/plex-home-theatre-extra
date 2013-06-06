@@ -98,6 +98,16 @@ if(VAAPI_FOUND)
   set(HAVE_LIBVA 1)
 endif()
 
+if(ENABLE_PYTHON)
+  plex_find_package(Python 1 1)
+endif()
+
+if(PYTHON_FOUND)
+  list(APPEND CONFIG_PLEX_LINK_LIBRARIES ${PYTON_LIBRARIES})
+  include_directories(${PYTHON_INCLUDE_PATH})
+  set(HAVE_PYTHON 1)
+endif()
+
 plex_get_soname(CURL_SONAME ${CURL_LIBRARY})
 
 list(APPEND CONFIG_INTERNAL_LIBS lib_dllsymbols)

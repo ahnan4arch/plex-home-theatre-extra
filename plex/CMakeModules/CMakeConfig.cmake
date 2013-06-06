@@ -11,7 +11,7 @@ set(CONFIG_INTERNAL_LIBS
 )
 
 OPTION(ENABLE_DVD_DRIVE "Enable the DVD drive" ON)
-OPTION(ENABLE_PYTHON "Enable Python addon support" OFF)
+OPTION(ENABLE_PYTHON "Enable Python addon support" ON)
 OPTION(CREATE_BUNDLE "Create the finished bundle" ON)
 OPTION(COMPRESS_TEXTURES "If we should compress the textures or not" ON)
 
