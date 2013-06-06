@@ -831,7 +831,7 @@ void CGUISettings::Initialize()
   AddBool(NULL, "videoplayer.teletextenabled", 23050, true);
   AddBool(NULL, "Videoplayer.teletextscale", 23055, true);
 
-  //CSettingsCategory* vid = AddCategory(SETTINGS_VIDEOS, "myvideos", 14081);
+  CSettingsCategory* vid = AddCategory(SETTINGS_VIDEOS, "myvideos", 14081);
 
   map<int, int> myVideosSelectActions;
   myVideosSelectActions.insert(make_pair(22080, SELECT_ACTION_CHOOSE));
@@ -839,7 +839,7 @@ void CGUISettings::Initialize()
   myVideosSelectActions.insert(make_pair(13404, SELECT_ACTION_RESUME));
   myVideosSelectActions.insert(make_pair(22081, SELECT_ACTION_INFO));
 
-  AddInt(NULL, "myvideos.selectaction", 22079, SELECT_ACTION_PLAY_OR_RESUME, myVideosSelectActions, SPIN_CONTROL_TEXT);
+  AddInt(vid, "myvideos.selectaction", 22079, SELECT_ACTION_PLAY_OR_RESUME, myVideosSelectActions, SPIN_CONTROL_TEXT);
   AddBool(NULL, "myvideos.extractflags",20433, true);
   AddBool(NULL, "myvideos.replacelabels", 20419, true);
   AddBool(NULL, "myvideos.extractthumb",20433, true);
