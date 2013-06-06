@@ -881,6 +881,7 @@ bool CApplication::Create()
 
 bool CApplication::CreateGUI()
 {
+  g_guiSettings.SetInt("videoscreen.mode3d", RENDER_STEREO_MODE_OFF);
   m_renderGUI = true;
 #ifdef HAS_SDL
   CLog::Log(LOGNOTICE, "Setup SDL");
